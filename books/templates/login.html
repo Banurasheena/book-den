@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="content-section">
+    <div class="main-data">
+        <form method="POST" action="" class="border">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4" id="login">Log In</legend>
+                <div class="form-group" id="try">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group" id="try">
+                    {{ form.password.label(class="form-control-label") }}
+                    {% if form.password.errors %}
+                    {{ form.password(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.password(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-check" id="try">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+            
+            <small id="muted">
+                    Need An Account? <a class="ml-2"  href="{{ url_for('register') }}"><br> Sign Up</a>
+                </small>
+        </form>
+    </div>
+    <div class="container">
+        <p class="syd" style="background-image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk6G0P3qiNLxphD_scyvciRqhzfHvxro1_Gl5TQVRtz9TkRIz9'">
+                Is 'MotherFatherSon' A True Story? Let's Find Out!..
+        </p>
+    </div>
+
+</div>
+
+
+
+{% endblock body %}
